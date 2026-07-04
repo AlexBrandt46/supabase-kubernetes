@@ -118,6 +118,8 @@ spec:
                   name: {{ include "supabase.secret.apikey.name" . }}
                   key: {{ include "supabase.secret.apikey.key.jwtKeys" . }}
             {{- end }}
+            - name: GOTRUE_JWT_ISSUER
+              value: $(API_EXTERNAL_URL)/auth/v1
             - name: GOTRUE_SMTP_USER
               valueFrom:
                 secretKeyRef:
